@@ -1,4 +1,4 @@
-use pq_rs::lexer::Lexer as Lexer;
+use pq_rs::lexer as Lexer;
 
 fn main() {
     let tokens = Lexer::lex(b"1 + 3");

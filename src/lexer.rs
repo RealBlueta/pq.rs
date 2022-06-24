@@ -1,25 +1,22 @@
-pub struct Lexer;
-impl Lexer {
-    pub fn lex(bytes: &[u8]) -> Vec<Token> {
-        let tokens = Vec::new();
-        let mut cursor = 0;
-    
-        while cursor < bytes.len() {
-            let ch = bytes[cursor] as char;
+pub fn lex(bytes: &[u8]) -> Vec<Token> {
+    let tokens = Vec::new();
+    let mut cursor = 0;
 
-            if char::is_numeric(ch) {
-                todo!(); // Implement Numbers
-            }
-    
-            if char::is_alphabetic(ch) {
-                todo!(); // Implement Token::Identifier
-            }
-    
-            panic!("Unknown token '{} {}'", ch, ch as i16);
+    while cursor < bytes.len() {
+        let ch = bytes[cursor] as char;
+
+        if char::is_numeric(ch) {
+            todo!(); // Implement Numbers
         }
-    
-        return tokens;
+
+        if char::is_alphabetic(ch) {
+            todo!(); // Implement Token::Identifier
+        }
+        
+        panic!("Unknown token '{} {}'", ch, ch as i16);
     }
+
+    return tokens;
 }
 
 #[derive(Debug)]
