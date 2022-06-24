@@ -15,7 +15,7 @@ pub fn lex(src: &str) -> HashMap<Token, i16> {
             todo!(); // Implement Token::Identifier
         }
 
-        panic!("Unknown token '{:} {:}'", ch, ch as i16);
+        panic!("Unknown token '{} {}'", ch, ch as i16);
     }
 
     return tokens;
