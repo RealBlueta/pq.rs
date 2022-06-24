@@ -21,7 +21,6 @@ pub fn lex(src: &str) -> HashMap<Token, i16> {
     return tokens;
 }
 
-
 #[derive(Debug)]
 pub enum Token {
     LeftParen,
