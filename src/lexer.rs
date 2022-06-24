@@ -43,8 +43,17 @@ pub fn lex(src: &str) -> HashMap<Token, i16> {
     let cursor = 0;
     
     while cursor < src.len() {
-        let char = src.chars().nth(cursor).unwrap();
-        panic!("Unknown token '{:?}'", char);
+        let ch = src.chars().nth(cursor).unwrap();
+
+        if char::is_numeric(ch) {
+            todo!();
+        }
+
+        if char::is_alphabetic(ch) {
+            todo!();
+        }
+
+        panic!("Unknown token '{:} {:}'", ch, ch as usize);
     }
 
     return tokens;
