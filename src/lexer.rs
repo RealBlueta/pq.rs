@@ -1,28 +1,29 @@
-use std::collections::HashMap;
-
-pub fn lex(src: &str) -> HashMap<Token, i16> {
-    let tokens = HashMap::new();
-    let cursor = 0;
+pub struct Lexer;
+impl Lexer {
+    pub fn lex(bytes: &[u8]) -> Vec<Token> {
+        let tokens = Vec::new();
+        let mut cursor = 0;
     
-    while cursor < src.len() {
-        let ch = src.chars().nth(cursor).unwrap();
+        while cursor < bytes.len() {
+            let ch = bytes[cursor] as char;
 
-        if char::is_numeric(ch) {
-            todo!(); // Implement Numbers
+            if char::is_numeric(ch) {
+                todo!(); // Implement Numbers
+            }
+    
+            if char::is_alphabetic(ch) {
+                todo!(); // Implement Token::Identifier
+            }
+    
+            panic!("Unknown token '{} {}'", ch, ch as i16);
         }
-
-        if char::is_alphabetic(ch) {
-            todo!(); // Implement Token::Identifier
-        }
-
-        panic!("Unknown token '{} {}'", ch, ch as i16);
+    
+        return tokens;
     }
-
-    return tokens;
 }
 
 #[derive(Debug)]
-pub enum Token {
+pub enum TokenType {
     LeftParen,
     RightParen,
     LeftCurlyBracket,
@@ -52,9 +53,24 @@ pub enum Token {
     Exclamation,
     QuestionMark,
     Pipe,
-    Identifier(String),
-    Number(i16),
-    String(String),
-    Comment(String),
+    Identifier,
+    Number,
+    String,
+    Comment,
     EOF,
+}
+
+#[derive(Debug)]
+pub struct Token {
+    pub token_type: TokenType,
+    pub cursor: usize,
+}
+
+impl Token {
+    pub fn new(token_type: TokenType, cursor: usize) -> Self {
+        Self {
+            token_type,
+            cursor,
+        }
+    }
 }
