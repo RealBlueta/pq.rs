@@ -3,6 +3,9 @@ name = "pq_rs"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "pq_rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

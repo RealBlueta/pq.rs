@@ -1,3 +1,7 @@
+use pq_rs::lexer;
+
 fn main() {
-    println!("Hello PQ.rs");
+    let tokens = lexer::lex("1 + 3");
+
+    println!("{:?}", tokens);
 }
