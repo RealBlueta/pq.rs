@@ -1,7 +1,8 @@
-use pq_rs::lexer;
+use pq_rs::lexer as Lexer;
 
 fn main() {
-    let tokens = lexer::lex("1 + 3");
-
-    println!("{:?}", tokens);
+    let tokens = Lexer::lex("1 + 3");
+    for token in tokens {
+        println!("{:?}", token);
+    }
 }
